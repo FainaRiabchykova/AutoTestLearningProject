@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/HP/IdeaProjects/AutoTestLearningProject">
+        <parameter name="toEmailUser1" value="qualitydandelion+to@gmail.com"></parameter>
+        <parameter name="ccEmailUser1" value="qualitydandelion+cc@gmail.com"></parameter>
+        <parameter name="bccEmailUser1" value="qualitydandelion+bcc@gmail.com"></parameter>
+        <parameter name="subjectUser1" value="Subject text User1"></parameter>
+        <classes>
+            <class name="pagefactory.tests.TestExecution">
+                <methods>
+                    <include name="checkSaveDraftsInGmail"/>
+                </methods>
+            </class>
+
+            <class name="pagefactory.tests.TestExecutionWithParameters">
+                <methods>
+                    <include name="checkSaveDraftsInGmail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
