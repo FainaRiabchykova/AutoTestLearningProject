@@ -9,7 +9,7 @@ public class BaseTest {
     //DriverProvider driver;
 
     // WebDriver driver;
-    private static final String SIGN_IN_URL = "https://accounts.google.com";
+    private static final String SIGN_IN_URL = "https://mail.google.com";
 
 //    @BeforeTest
 //    public void profileSetUp() {

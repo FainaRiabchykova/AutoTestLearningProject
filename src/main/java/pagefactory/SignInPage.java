@@ -10,7 +10,7 @@ import static org.openqa.selenium.Keys.ENTER;
 public class SignInPage extends BasePage {
     @FindBy(xpath = "//div[@class='Xb9hP']//input[@type='email']")
     private WebElement emailInputField;
-    @FindBy(xpath = "//span[text()='Далі']")
+    @FindBy(xpath = "//div[@id='identifierNext']")
     private WebElement nextButton;
     @FindBy(css = "[name='password']")
     private WebElement passwordInputField;
@@ -25,6 +25,5 @@ public class SignInPage extends BasePage {
 
     public void passwordSubmit(String password) {
         passwordInputField.sendKeys(password, ENTER);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", nextButton);
     }
 }
