@@ -1,14 +1,16 @@
 package pagefactory;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class DraftPage extends BasePage {
 
-    @FindBy(xpath = "(//*[text()='Чернетка'])[1]")
-    private WebElement draftItem;
+    @FindBy(xpath = "//tr[descendant::text()='Чернетка']")
+    private List<WebElement> draftItems;
 
     @FindBy(xpath = "//span[@email]/following-sibling::span[contains(text(), 'ще 2')]")
     private WebElement draftLetterCClinks;
@@ -26,12 +28,15 @@ public class DraftPage extends BasePage {
     WebElement sendButton;
 
 
-
-    public WebElement getDraftItem() {
-        return draftItem;
+    public WebElement getDraftItemWithSubject(final String expectedSubject) {
+        return draftItems.stream()
+                .filter(item -> StringUtils.containsIgnoreCase(item.getText(), expectedSubject))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No drafts with text: " + expectedSubject));
     }
 
-    public void clickOnDraftItem() {
+    public void clickOnDraftItem(final String draftSubject) {
+        WebElement draftItem = getDraftItemWithSubject(draftSubject);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", draftItem);
     }
 

@@ -51,7 +51,7 @@ public class TestExecution extends BaseTest {
 
         //Go to the “draft” folder & open previously saved message
         getDraftPage().waitURLContains(TIME_TO_WAIT, DRAFT_PAGE_URL_KEYWORD);
-        getDraftPage().clickOnDraftItem();
+        getDraftPage().clickOnDraftItem(SUBJECT_TEXT);
 
         // Verify that all fields are saved correctly
         getDraftPage().clickOnDraftLetterCClinks();
