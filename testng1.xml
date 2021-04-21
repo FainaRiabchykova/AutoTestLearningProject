@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite verbose="2" preserve-order="true" name="C:/Users/HP/IdeaProjects/AutoTestLearningProject"  data-provider-thread-count="3">
+    <test name="parallelTest">
+        <classes>
+            <class name="pagefactory.tests.TestExecutionParallelWithDataProvider">
+                <methods>
+                    <include name="checkSaveDraftsInGmail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

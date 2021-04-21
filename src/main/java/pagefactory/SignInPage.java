@@ -15,9 +15,6 @@ public class SignInPage extends BasePage {
     @FindBy(css = "[name='password']")
     private WebElement passwordInputField;
 
-    public SignInPage(WebDriver driver) {
-        super(driver);
-    }
 
     public void emailSubmit(String email) {
         emailInputField.sendKeys(email, ENTER);

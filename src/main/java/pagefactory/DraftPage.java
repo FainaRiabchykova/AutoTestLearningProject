@@ -26,9 +26,6 @@ public class DraftPage extends BasePage {
     WebElement sendButton;
 
 
-    public DraftPage(WebDriver driver) {
-        super(driver);
-    }
 
     public WebElement getDraftItem() {
         return draftItem;

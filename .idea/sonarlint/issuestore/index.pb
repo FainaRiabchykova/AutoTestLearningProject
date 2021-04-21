@@ -15,3 +15,16 @@ X
 (src/main/java/pagefactory/DraftPage.java,c\9\c95656c9ba426b4b47e7ad1a1b55be6b3af33d9b
 b
 2src/test/java/pagefactory/tests/TestExecution.java,8\a\8af1ae61176b86f6246cbc0531fecb4baf3a7277
+:
+
+testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
+p
+@src/test/java/pagefactory/tests/TestExecutionWithParameters.java,8\1\8117a9742c55b6f3fcf8deed50724c05f5ef8ad4
+;
+testng1.xml,c\7\c7c95fc97f249a4c2be47f958ad748782d2891a8
+z
+Jsrc/test/java/pagefactory/tests/TestExecutionParallelWithDataProvider.java,c\9\c9eaed58898ece739371c67e4bd96cdd0350b145
+f
+6src/test/java/pagefactory/tests/DataProviderClass.java,9\8\98bd7172e9d768a609de21569fe075acd760efe6
+b
+2src/test/java/pagefactory/tests/DriverManager.java,9\6\96f9e9865d4eefd754914f6960f51a610faacaa5

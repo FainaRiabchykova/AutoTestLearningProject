@@ -28,9 +28,7 @@ public class GmailPage extends BasePage {
     private WebElement draftCategory;
 
 
-    public GmailPage(WebDriver driver) {
-        super(driver);
-    }
+
 
     public WebElement getComposeButton() {
         return composeButton;

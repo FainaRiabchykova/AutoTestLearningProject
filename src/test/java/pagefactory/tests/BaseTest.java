@@ -1,52 +1,60 @@
 package pagefactory.tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import pagefactory.DraftPage;
-import pagefactory.GmailPage;
-import pagefactory.MyAccountPage;
-import pagefactory.SignInPage;
-
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
+import pagefactory.*;
 
 public class BaseTest {
+    //DriverProvider driver;
 
-    private WebDriver driver;
+    // WebDriver driver;
     private static final String SIGN_IN_URL = "https://accounts.google.com";
 
-    @BeforeTest
-    public void profileSetUp() {
-        chromedriver().setup();
-    }
+//    @BeforeTest
+//    public void profileSetUp() {
+//        WebDriverManager.chromedriver().setup();
+//        this.driver = DriverProvider.getDriver();
+//        this.driver = DriverProvider.getDriver();
+//        chromedriver().setup();
+//    }
 
     @BeforeMethod
     public void testsSetUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(SIGN_IN_URL);
+
+//        this.driver = DriverProvider.getDriver();
+//        driver.manage().window().maximize();
+        DriverProviderManager.getDriver().get(SIGN_IN_URL);
     }
+
 
     @AfterMethod
     public void tearDown() {
-        driver.close();
+        DriverProviderManager.closeDriver();
+        // driver.close();
     }
+
+    //    public WebDriver getDriver() {
+//        return driver;
+//    }
     public WebDriver getDriver() {
-        return driver;
+        return DriverProviderManager.getDriver();
     }
+
     public SignInPage getSignInPage() {
-        return new SignInPage(getDriver());
+        return new SignInPage();
     }
+
     public MyAccountPage getMyAccountPage() {
-        return new MyAccountPage(getDriver());
+        return new MyAccountPage();
     }
+
     public GmailPage getGmailPage() {
-        return new GmailPage(getDriver());
+        return new GmailPage();
     }
+
     public DraftPage getDraftPage() {
-        return new DraftPage(getDriver());
+        return new DraftPage();
     }
 
 }

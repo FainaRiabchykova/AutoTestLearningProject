@@ -9,15 +9,22 @@
         <classes>
             <class name="pagefactory.tests.TestExecution">
                 <methods>
-                    <include name="checkSaveDraftsInGmail"/>
+                    <exclude name="checkSaveDraftsInGmail"/>
                 </methods>
             </class>
-
-            <class name="pagefactory.tests.TestExecutionWithParameters">
+            <class name="pagefactory.tests.TestExecutionParallelWithDataProvider">
                 <methods>
                     <include name="checkSaveDraftsInGmail"/>
                 </methods>
             </class>
+            <class name="pagefactory.tests.TestExecutionWithParameters">
+                <methods>
+                    <exclude name="checkSaveDraftsInGmail"/>
+                </methods>
+            </class>
         </classes>
     </test>
+
+
 </suite>
+
