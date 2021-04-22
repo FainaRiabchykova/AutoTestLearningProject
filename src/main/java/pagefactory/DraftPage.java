@@ -9,10 +9,11 @@ import java.util.List;
 
 public class DraftPage extends BasePage {
 
-    @FindBy(xpath = "//tr[descendant::text()='Чернетка']")
+   // @FindBy(xpath = "//tr[descendant::text()='Чернетка']")
+    @FindBy(xpath = "//div[@role=\"link\"]//span[contains(@data-standalone-draft-id, '#msg-a')]")
     private List<WebElement> draftItems;
 
-    @FindBy(xpath = "//span[@email]/following-sibling::span[contains(text(), 'ще 2')]")
+    @FindBy(xpath = "//span[@email]/following-sibling::span")
     private WebElement draftLetterCClinks;
 
     @FindBy(xpath = "//input[@name='to']")
@@ -24,7 +25,8 @@ public class DraftPage extends BasePage {
     @FindBy(xpath = "//input[@name='subjectbox']")
     WebElement draftLetterSubject;
 
-    @FindBy(xpath = "//div[text()='Надіслати']")
+    //@FindBy(xpath = "//div[text()='Надіслати']")
+    @FindBy(xpath = "//div[@class=\"dC\"]//div[@role=\"button\" and text()]")
     WebElement sendButton;
 
 

@@ -8,13 +8,15 @@ import org.openqa.selenium.support.FindBy;
 public class GmailPage extends BasePage {
 
 
-    @FindBy(xpath = "//div[text()=\"Написати\"]")
+    @FindBy(xpath = "//div[@class=\"T-I T-I-KE L3\"]")
     private WebElement composeButton;
     @FindBy(xpath = "//textarea[@name=\"to\"]")
     private WebElement toInputField;
-    @FindBy(xpath = "//span[contains(@data-tooltip, 'Додати одержувачів копії')]")
+    //@FindBy(xpath = "//span[contains(@data-tooltip, 'Додати одержувачів копії')]")
+    @FindBy(xpath = "(//span [@role=\"link\" and @data-tooltip])[2]")
     private WebElement ccLink;
-    @FindBy(xpath = "//span[contains(@data-tooltip, 'Додати одержувачів прихованої копії')]")
+    //@FindBy(xpath = "//span[contains(@data-tooltip, 'Додати одержувачів прихованої копії')]")
+    @FindBy(xpath = "(//span [@role=\"link\" and @data-tooltip])[4]")
     private WebElement bccLink;
     @FindBy(xpath = "//textarea[@name=\"cc\"]")
     private WebElement ccInputField;
@@ -22,7 +24,8 @@ public class GmailPage extends BasePage {
     private WebElement bccInputField;
     @FindBy(xpath = "//*[@name=\"subjectbox\"]")
     private WebElement subjectField;
-    @FindBy(xpath = "//*[@data-tooltip=\"Зберегти та закрити\"]")
+    //@FindBy(xpath = "//*[@data-tooltip=\"Зберегти та закрити\"]")
+    @FindBy(xpath = "//img[@class=\"Ha\"]")
     private WebElement closeAndSave;
     @FindBy(xpath = "//a[contains(@href, 'draft')]")
     private WebElement draftCategory;
@@ -69,5 +72,7 @@ public class GmailPage extends BasePage {
     public void clickOnDraftCategory() {
         draftCategory.click();
     }
+
+    public WebElement getCloseAndSave() { return closeAndSave; }
 
 }

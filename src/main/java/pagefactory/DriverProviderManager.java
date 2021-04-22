@@ -29,11 +29,5 @@ public class DriverProviderManager {
             driverPool.get().close();
             driverPool.remove();
         }
-
-//        driverPool.get().quit();
-//        driverPool.set(null);
-
-//        driverPool.get().close();
-//        driverPool.remove();
     }
 }

@@ -26,5 +26,9 @@ z
 Jsrc/test/java/pagefactory/tests/TestExecutionParallelWithDataProvider.java,c\9\c9eaed58898ece739371c67e4bd96cdd0350b145
 f
 6src/test/java/pagefactory/tests/DataProviderClass.java,9\8\98bd7172e9d768a609de21569fe075acd760efe6
-b
-2src/test/java/pagefactory/tests/DriverManager.java,9\6\96f9e9865d4eefd754914f6960f51a610faacaa5
+d
+4src/main/java/pagefactory/DriverProviderManager.java,b\2\b29a56367b9e05ea71cf2a3dc6ec6c47986a7b9e
+c
+3src/test/java/pagefactory/tests/EmailGenerator.java,1\c\1c009c2919da56befa6f225d87a8ea083b328f6f
+Y
+)src/test/java/pagefactory/tests/User.java,7\9\79d805d0a139da9409459e0b026c850c742b7f22

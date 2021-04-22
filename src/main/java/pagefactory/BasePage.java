@@ -8,8 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.urlContains;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class BasePage {
     WebDriver driver;
@@ -26,6 +25,17 @@ public class BasePage {
     public void waitVisibilityOfElement(long timeToWaite, final WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, timeToWaite);
         wait.until(visibilityOf(element));
+    }
+
+    public void waitInVisibilityOfElement(long timeToWaite, final WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, timeToWaite);
+        wait.until(invisibilityOf(element));
+    }
+
+    public void waitElementToBeClickable(long timeToWaite, final WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, timeToWaite);
+        wait.until(elementToBeClickable(element));
+
     }
 
     public void waitURLContains(long timeToWaite, String url) {

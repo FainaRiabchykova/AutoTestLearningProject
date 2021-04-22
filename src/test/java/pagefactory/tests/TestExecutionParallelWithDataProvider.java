@@ -6,9 +6,7 @@ import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class TestExecutionParallelWithDataProvider extends BaseTest {
-    //credentials
-    private final String EMAIL = "dfgyuuyguyg@gmail.com";
-    private final String PASSWORD = "sdrsdfjghjh";
+
     //waits
     private final long TIME_TO_WAIT = 30;
     //urls & url keywords
@@ -20,13 +18,13 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
 
     @Test(dataProvider = "riaTest", dataProviderClass = DataProviderClass.class)
 
-    public void checkSaveDraftsInGmail(String toEmailUser, String ccEmailUser, String bccEmailUser, String subjectUser) throws InterruptedException {
+    public void checkSaveDraftsInGmail(User user) throws InterruptedException {
 
-        EmailMessage message = EmailGenerator.getSampleEmail();
+        EmailMessage emailData = EmailGenerator.getSampleEmail();
         //checkLoginToAccount
-        getSignInPage().emailSubmit(EMAIL);
+        getSignInPage().emailSubmit(user.getEmail());
         getSignInPage().implicitWait(TIME_TO_WAIT);
-        getSignInPage().passwordSubmit(PASSWORD);
+        getSignInPage().passwordSubmit(user.getPassword());
         getSignInPage().implicitWait(TIME_TO_WAIT);
         getSignInPage().waitURLContains(TIME_TO_WAIT, MAIL_URL_KEYWORD);
 
@@ -37,28 +35,30 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
         //Fill the next fields: to, cc, bcc, subject & message
         getGmailPage().clickOnCCLink();
         getGmailPage().clickOnBCCLink();
-        getGmailPage().fillTOField(message.getTo());
-        getGmailPage().fillCCField(message.getCc());
-        getGmailPage().fillBCCField(message.getBcc());
-        getGmailPage().fillSubjectField(message.getSubject());
+        getGmailPage().fillTOField(emailData.getTo());
+        getGmailPage().fillCCField(emailData.getCc());
+        getGmailPage().fillBCCField(emailData.getBcc());
+        getGmailPage().fillSubjectField(emailData.getSubject());
 
         //Click on “save & close” button
         getGmailPage().clickOnCloseAndSave();
-        Thread.sleep(7000);
+        getGmailPage().waitInVisibilityOfElement(TIME_TO_WAIT, getGmailPage().getCloseAndSave());
         getGmailPage().clickOnDraftCategory();
 
         //Go to the “draft” folder & open previously saved message
         getDraftPage().waitURLContains(TIME_TO_WAIT, DRAFT_PAGE_URL_KEYWORD);
-        getDraftPage().clickOnDraftItem(subjectUser);
+        getDraftPage().clickOnDraftItem(emailData.getSubject());
 
         // Verify that all fields are saved correctly
+        getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());
         getDraftPage().clickOnDraftLetterCClinks();
-        assertEquals(getDraftPage().getDraftLetterTOValue(), toEmailUser);
-        assertEquals(getDraftPage().getDraftLetterCCValue(), ccEmailUser);
-        assertEquals(getDraftPage().getDraftLetterBCCValue(), bccEmailUser);
-        assertEquals(getDraftPage().getDraftLetterSubject(), subjectUser);
+        assertEquals(getDraftPage().getDraftLetterTOValue(), emailData.getTo());
+        assertEquals(getDraftPage().getDraftLetterCCValue(), emailData.getCc());
+        assertEquals(getDraftPage().getDraftLetterBCCValue(), emailData.getBcc());
+        assertEquals(getDraftPage().getDraftLetterSubject(), emailData.getSubject());
 
         //Press the “send” button
         getDraftPage().clickOnSendButton();
     }
 }
+

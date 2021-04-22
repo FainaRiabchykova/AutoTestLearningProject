@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public class EmailGenerator {
 
     public static EmailMessage getSampleEmail() {
-        return new EmailMessage("", "CC", "Bcc", "EMail subject " + System.currentTimeMillis(), "THis is email message");
+        return new EmailMessage("qualitydandelion+to@gmail.com", "qualitydandelion+cc@gmail.com", "qualitydandelion+bcc@gmail.com", "EMail subject " + System.currentTimeMillis());
     }
 
 }
@@ -21,15 +21,14 @@ class EmailMessage {
     private String cc;
     private String bcc;
     private String subject;
-    private String message;
 
 
-    public EmailMessage(String to, String cc, String bcc, String subject, String message) {
+    public EmailMessage(String to, String cc, String bcc, String subject) {
         this.to = to;
         this.cc = cc;
         this.bcc = bcc;
         this.subject = subject;
-        this.message = message;
+
     }
 
     public String getTo() {
@@ -63,12 +62,6 @@ class EmailMessage {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
+
+

@@ -56,10 +56,7 @@
                     </suiteXmlFiles>
 
                     <properties>
-                        <property>
-                            <name>parallel</name>
-                            <value>methods</value>
-                        </property>
+
 
                         <property>
                             <name>dataproviderthreadcount</name>
