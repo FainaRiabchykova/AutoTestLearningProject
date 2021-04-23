@@ -1,5 +1,6 @@
 package pagefactory.tests;
 
+import businesslayer.datamanager.User;
 import org.testng.annotations.DataProvider;
 
 import java.util.Iterator;
@@ -13,7 +14,8 @@ public  class DataProviderClass {
                 new Object[]{ new User("qariatest2@gmail.com\n", "Aaaa@222") },
                 new Object[]{ new User("qariatest3@gmail.com\n", "Aaaa#333") },
                 new Object[]{ new User("qariatest4@gmail.com\n", "Aaaa$444") },
-                new Object[]{ new User("qariatest5@gmail.com\n", "Aaaa%555") } )
+                new Object[]{ new User("qariatest5@gmail.com\n", "Aaaa%555") }
+           )
         .iterator();
     }
 }

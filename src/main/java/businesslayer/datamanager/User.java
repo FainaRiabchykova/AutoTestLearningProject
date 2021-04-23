@@ -1,4 +1,4 @@
-package pagefactory.tests;
+package businesslayer.datamanager;
 
 public class User {
 

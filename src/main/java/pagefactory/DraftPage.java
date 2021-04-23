@@ -9,13 +9,10 @@ import java.util.List;
 
 public class DraftPage extends BasePage {
 
-   // @FindBy(xpath = "//tr[descendant::text()='Чернетка']")
     @FindBy(xpath = "//div[@role=\"link\"]//span[contains(@data-standalone-draft-id, '#msg-a')]")
     private List<WebElement> draftItems;
-
-    @FindBy(xpath = "//span[@email]/following-sibling::span")
+    @FindBy(xpath = "//span[@email]/following-sibling::span[@class=\"aDp\"]")
     private WebElement draftLetterCClinks;
-
     @FindBy(xpath = "//input[@name='to']")
     WebElement draftLetterTOinput;
     @FindBy(xpath = "//input[@name='cc']")
@@ -24,8 +21,6 @@ public class DraftPage extends BasePage {
     WebElement draftLetterBCCinput;
     @FindBy(xpath = "//input[@name='subjectbox']")
     WebElement draftLetterSubject;
-
-    //@FindBy(xpath = "//div[text()='Надіслати']")
     @FindBy(xpath = "//div[@class=\"dC\"]//div[@role=\"button\" and text()]")
     WebElement sendButton;
 
@@ -43,7 +38,8 @@ public class DraftPage extends BasePage {
     }
 
     public void clickOnDraftLetterCClinks() {
-        draftLetterCClinks.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", draftLetterCClinks);
+       // draftLetterCClinks.click();
     }
 
     public String getDraftLetterTOValue() {
@@ -65,6 +61,7 @@ public class DraftPage extends BasePage {
     public void clickOnSendButton() {
         sendButton.click();
     }
+
     public WebElement getDraftLetterCClinks() {
         return draftLetterCClinks;
     }

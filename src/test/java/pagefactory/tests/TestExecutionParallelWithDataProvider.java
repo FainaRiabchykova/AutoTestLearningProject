@@ -1,5 +1,8 @@
 package pagefactory.tests;
 
+import businesslayer.datamanager.EmailData;
+import businesslayer.datamanager.EmailProvider;
+import businesslayer.datamanager.User;
 import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -19,8 +22,8 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
     @Test(dataProvider = "riaTest", dataProviderClass = DataProviderClass.class)
 
     public void checkSaveDraftsInGmail(User user) throws InterruptedException {
+        EmailData emailData = EmailProvider.getEmailData();
 
-        EmailMessage emailData = EmailGenerator.getSampleEmail();
         //checkLoginToAccount
         getSignInPage().emailSubmit(user.getEmail());
         getSignInPage().implicitWait(TIME_TO_WAIT);
@@ -50,7 +53,7 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
         getDraftPage().clickOnDraftItem(emailData.getSubject());
 
         // Verify that all fields are saved correctly
-        getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());
+          getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());
         getDraftPage().clickOnDraftLetterCClinks();
         assertEquals(getDraftPage().getDraftLetterTOValue(), emailData.getTo());
         assertEquals(getDraftPage().getDraftLetterCCValue(), emailData.getCc());

@@ -14,7 +14,6 @@ public class BaseTest {
         DriverProviderManager.getDriver().get(SIGN_IN_URL);
     }
 
-
     @AfterMethod
     public void tearDown() {
         DriverProviderManager.closeDriver();
@@ -24,15 +23,19 @@ public class BaseTest {
     public WebDriver getDriver() {
         return DriverProviderManager.getDriver();
     }
+
     public SignInPage getSignInPage() {
         return new SignInPage();
     }
+
     public MyAccountPage getMyAccountPage() {
         return new MyAccountPage();
     }
+
     public GmailPage getGmailPage() {
         return new GmailPage();
     }
+
     public DraftPage getDraftPage() {
         return new DraftPage();
     }
