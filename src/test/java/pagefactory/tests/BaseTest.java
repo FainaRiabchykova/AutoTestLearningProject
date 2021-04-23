@@ -19,7 +19,6 @@ public class BaseTest {
         DriverProviderManager.closeDriver();
     }
 
-
     public WebDriver getDriver() {
         return DriverProviderManager.getDriver();
     }

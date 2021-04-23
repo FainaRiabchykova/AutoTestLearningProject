@@ -7,13 +7,11 @@ public class EmailData {
   private String bcc;
   private String subject;
 
-
   public EmailData(String to, String cc, String bcc, String subject) {
       this.to = to;
       this.cc = cc;
       this.bcc = bcc;
       this.subject = subject;
-
   }
 
   public String getTo() {
@@ -40,9 +38,7 @@ public class EmailData {
       this.bcc = bcc;
   }
 
-  public String getSubject() {
-      return subject;
-  }
+  public String getSubject() { return subject; }
 
   public void setSubject(String subject) {
       this.subject = subject;

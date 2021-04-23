@@ -50,7 +50,7 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
 
         //Go to the “draft” folder & open previously saved message
         getDraftPage().waitURLContains(TIME_TO_WAIT, DRAFT_PAGE_URL_KEYWORD);
-        getDraftPage().clickOnDraftItem(emailData.getSubject());
+        getDraftPage().clickOnDraftItem();
 
         // Verify that all fields are saved correctly
           getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());

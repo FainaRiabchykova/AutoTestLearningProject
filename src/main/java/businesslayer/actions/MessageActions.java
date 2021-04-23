@@ -22,7 +22,7 @@ public class MessageActions extends BaseBusinessLayer {
         gmailPage.waitInVisibilityOfElement(TIME_TO_WAIT, gmailPage.getCloseAndSave());
         gmailPage.clickOnDraftCategory();
         draftPage.waitURLContains(TIME_TO_WAIT, DRAFT_PAGE_URL_KEYWORD);
-        draftPage.clickOnDraftItem(emailData.getSubject());
+        draftPage.clickOnDraftItem();
         draftPage.waitElementToBeClickable(TIME_TO_WAIT, draftPage.getDraftLetterCClinks());
         draftPage.clickOnDraftLetterCClinks();
     }

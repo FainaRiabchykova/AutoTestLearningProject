@@ -6,23 +6,19 @@ import businesslayer.asserts.MessageAsserts;
 import businesslayer.datamanager.User;
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 public class TestExecutionViaBusinessLayer extends BaseTest {
 
-    SignInActions signInActions = new SignInActions();
-    MessageActions messageActions = new MessageActions();
-    MessageAsserts messageAsserts = new MessageAsserts();
-
     @Test(dataProvider = "riaTest", dataProviderClass = DataProviderClass.class)
-
     public void checkSaveDraftsInGmail(User user) throws InterruptedException {
+
+        SignInActions signInActions = new SignInActions();
+        MessageActions messageActions = new MessageActions();
+        MessageAsserts messageAsserts = new MessageAsserts();
 
         signInActions.signIn(user);
         messageActions.createDraftLetter();
         messageActions.openDraftLetter();
         messageAsserts.assertDraftLetterFieldsAreCorrect();
         messageActions.sendDraftLetter();
-
     }
 }
