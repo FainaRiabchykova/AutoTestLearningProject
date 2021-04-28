@@ -3,6 +3,7 @@ package pagefactory.tests;
 import businesslayer.datamanager.EmailData;
 import businesslayer.datamanager.EmailProvider;
 import businesslayer.datamanager.User;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertEquals;

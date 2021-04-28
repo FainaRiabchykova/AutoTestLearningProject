@@ -7,14 +7,14 @@
         <classes>
             <class name="pagefactory.tests.TestExecutionParallelWithDataProvider">
                 <methods>
-                    <exclude name="checkSaveDraftsInGmail"/>
+                    <include name="checkSaveDraftsInGmail"/>
                 </methods>
             </class>
 
 
             <class name="pagefactory.tests.TestExecutionViaBusinessLayer">
                 <methods>
-                    <include name="checkSaveDraftsInGmail"/>
+                    <exclude name="checkSaveDraftsInGmail"/>
                 </methods>
             </class>
         </classes>
