@@ -5,12 +5,16 @@ import businesslayer.datamanager.EmailProvider;
 import decoratorpattern.pages.DraftPageFD;
 import decoratorpattern.pages.GmailPageFD;
 import decoratorpattern.pages.SignInPageFD;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BaseBusinessLayerFD {
 
     SignInPageFD signInPageFD = new SignInPageFD();
     GmailPageFD gmailPageFD = new GmailPageFD();
     protected DraftPageFD draftPageFD = new DraftPageFD();
+
+    protected static Logger logger = LogManager.getLogger();
 
     protected EmailData emailData = EmailProvider.getEmailData();
 

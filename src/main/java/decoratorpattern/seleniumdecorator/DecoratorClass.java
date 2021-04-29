@@ -6,6 +6,7 @@ import java.util.List;
 
 public class DecoratorClass implements WebElement {
     protected WebElement element;
+    protected final long TIME_TO_WAIT = 30;
 
     public DecoratorClass(WebElement element) {
         this.element = element;

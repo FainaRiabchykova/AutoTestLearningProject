@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+
+    <Properties>
+        <Property name="logPath">target/logs</Property>
+
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="RolFileLogger" fileName="${logPath}/test-info.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+
+        <File name="FileLogger" fileName="${logPath}/text.log" bufferedIO="true">
+            <PatternLayout   pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </File>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout   pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="Log_RollingFile" level="debug" additivity="true">
+            <appender-ref ref="RolFileLogger" level="debug" />
+        </Logger>
+
+        <Logger name="Log_Console" level="debug" additivity="false">
+            <appender-ref ref="console" level="debug" />
+        </Logger>
+        <Logger name="Log_File" level="debug" additivity="true">
+            <appender-ref ref="FileLogger" level="debug" />
+        </Logger>
+
+        <Root level="debug" additivity="false">
+            <appender-ref ref="console" level="debug"/>
+            <appender-ref ref="FileLogger"/>
+            <appender-ref ref="RolFileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>

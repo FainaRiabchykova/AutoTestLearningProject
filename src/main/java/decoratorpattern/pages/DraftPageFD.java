@@ -1,63 +1,60 @@
 package decoratorpattern.pages;
 
-import decoratorpattern.seleniumdecorator.ButtonJS;
-import org.openqa.selenium.JavascriptExecutor;
+import decoratorpattern.seleniumdecorator.Button;
+import decoratorpattern.seleniumdecorator.InputText;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DraftPageFD extends  BasePageFD{
-
+public class DraftPageFD extends BasePageFD {
 
     @FindBy(xpath = "(//div[@role=\"link\"]//span[contains(@data-standalone-draft-id, '#msg-a')])[1]")
-   // private WebElement draftItem;
-    private ButtonJS draftItem;
+    private Button draftItem;
 
     @FindBy(xpath = "//span[@email]/following-sibling::span[@class=\"aDp\"]")
-    private WebElement draftLetterCClinks;
+    private Button draftLetterCClinks;
 
     @FindBy(xpath = "//input[@name='to']")
-    private WebElement draftLetterTOinput;
+    private InputText draftLetterTOinput;
 
     @FindBy(xpath = "//input[@name='cc']")
-    private WebElement draftLetterCCinput;
+    private InputText draftLetterCCinput;
 
     @FindBy(xpath = "//input[@name='bcc']")
-    private WebElement draftLetterBCCinput;
+    private InputText draftLetterBCCinput;
 
     @FindBy(xpath = "//input[@name='subjectbox']")
-    private WebElement draftLetterSubject;
+    private InputText draftLetterSubject;
 
     @FindBy(xpath = "//div[@class=\"dC\"]//div[@role=\"button\" and text()]")
-    private WebElement sendButton;
-
+    private Button sendButton;
 
 
     public void clickOnDraftItem() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", draftItem);
+        draftItem.clickJS();
     }
 
     public void clickOnDraftLetterCClinks() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", draftLetterCClinks);
+        draftLetterCClinks.clickJS();
     }
 
     public String getDraftLetterTOValue() {
-        return draftLetterTOinput.getAttribute("value");
+       return draftLetterTOinput.getValueAttribute();
     }
 
     public String getDraftLetterCCValue() {
-        return draftLetterCCinput.getAttribute("value");
+        return draftLetterCCinput.getValueAttribute();
     }
 
     public String getDraftLetterBCCValue() {
-        return draftLetterBCCinput.getAttribute("value");
+        return draftLetterBCCinput.getValueAttribute();
     }
 
     public String getDraftLetterSubject() {
-        return draftLetterSubject.getAttribute("value");
+        return draftLetterSubject.getValueAttribute();
     }
 
     public void clickOnSendButton() {
-        sendButton.click();
+        sendButton.safeClick();
     }
 
     public WebElement getDraftLetterCClinks() {

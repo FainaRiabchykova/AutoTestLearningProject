@@ -1,19 +1,18 @@
 package decoratorpattern.pages;
 
+import decoratorpattern.seleniumdecorator.InputForm;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import static org.openqa.selenium.Keys.ENTER;
-
-public class SignInPageFD extends BasePageFD{
+public class SignInPageFD extends BasePageFD {
 
     @FindBy(xpath = "//div[@class='Xb9hP']//input[@type='email']")
-    private WebElement emailInputField;
+    private InputForm emailInputField;
     @FindBy(xpath = "//div[@id='identifierNext']")
     private WebElement nextButton;
     @FindBy(css = "[name='password']")
-    private WebElement passwordInputField;
+    private InputForm passwordInputField;
 
     public WebElement getEmailInputField() {
         return emailInputField;
@@ -23,15 +22,13 @@ public class SignInPageFD extends BasePageFD{
         return passwordInputField;
     }
 
+    @Step("Login with email: {0}")
     public void emailSubmit(String email) {
-        emailInputField.sendKeys(email, ENTER);
-        Actions actions = new Actions(this.driver);
-        actions.click(nextButton);
-        actions.build().perform();
+        emailInputField.submitHard(email, nextButton);
     }
 
+    @Step("Login with password: {0}")
     public void passwordSubmit(String password) {
-        passwordInputField.sendKeys(password, ENTER);
+        passwordInputField.submitLight(password);
     }
-
 }

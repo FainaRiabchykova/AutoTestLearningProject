@@ -1,11 +1,9 @@
 package decoratorpattern.seleniumdecorator;
-
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.DefaultFieldDecorator;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
-
 import java.lang.reflect.Field;
 
 public class CustomFieldDecorator extends DefaultFieldDecorator {

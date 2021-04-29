@@ -1,10 +1,11 @@
-package pagefactory;
+package businesslayer.datamanager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class DriverProviderManager {
 
@@ -19,6 +20,8 @@ public class DriverProviderManager {
 
             driverPool.set(new ChromeDriver());
             driverPool.get().manage().window().maximize();
+            driverPool.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         }
         return driverPool.get();
     }
