@@ -1,9 +1,15 @@
 package businesslayer.datamanager;
+import com.opencsv.bean.CsvBindByName;
 
 public class User {
 
+    @CsvBindByName(column = "email")
     private String email;
+    @CsvBindByName(column = "password")
     private String password;
+
+    public User() {
+    }
 
     public User(String email, String password) {
         this.email = email;
@@ -24,5 +30,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

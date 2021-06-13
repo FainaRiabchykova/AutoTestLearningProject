@@ -14,7 +14,6 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
     //waits
     private final long TIME_TO_WAIT = 30;
     //urls & url keywords
-    private static final String GMAIL_URL = "https://mail.google.com/mail/u/0/?tab=km#inbox";
     private final String MAIL_URL_KEYWORD = "mail";
     private final String DRAFT_PAGE_URL_KEYWORD = "drafts";
 
@@ -27,9 +26,7 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
 
         //checkLoginToAccount
         getSignInPage().emailSubmit(user.getEmail());
-        getSignInPage().implicitWait(TIME_TO_WAIT);
         getSignInPage().passwordSubmit(user.getPassword());
-        getSignInPage().implicitWait(TIME_TO_WAIT);
         getSignInPage().waitURLContains(TIME_TO_WAIT, MAIL_URL_KEYWORD);
 
         //Click on “compose” button
@@ -54,7 +51,7 @@ public class TestExecutionParallelWithDataProvider extends BaseTest {
         getDraftPage().clickOnDraftItem();
 
         // Verify that all fields are saved correctly
-          getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());
+        getDraftPage().waitElementToBeClickable(TIME_TO_WAIT, getDraftPage().getDraftLetterCClinks());
         getDraftPage().clickOnDraftLetterCClinks();
         assertEquals(getDraftPage().getDraftLetterTOValue(), emailData.getTo());
         assertEquals(getDraftPage().getDraftLetterCCValue(), emailData.getCc());

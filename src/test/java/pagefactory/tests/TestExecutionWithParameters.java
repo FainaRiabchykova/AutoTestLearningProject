@@ -13,8 +13,6 @@ public class TestExecutionWithParameters  extends BaseTest {
     //waits
     private final long TIME_TO_WAIT = 30;
     //urls & url keywords
-    private static final String GMAIL_URL = "https://mail.google.com/mail/u/0/?tab=km#inbox";
-    private final String MY_ACCOUNT_URL_KEYWORD = "myaccount";
     private final String DRAFT_PAGE_URL_KEYWORD = "drafts";
 
 
@@ -24,14 +22,9 @@ public class TestExecutionWithParameters  extends BaseTest {
 
         //checkLoginToAccount
         getSignInPage().emailSubmit(EMAIL);
-        getSignInPage().implicitWait(TIME_TO_WAIT);
         getSignInPage().passwordSubmit(PASSWORD);
-        getSignInPage().implicitWait(TIME_TO_WAIT);
-        getSignInPage().waitURLContains(TIME_TO_WAIT, MY_ACCOUNT_URL_KEYWORD);
-        assertTrue(getDriver().getCurrentUrl().contains(MY_ACCOUNT_URL_KEYWORD));
 
         //Click on “compose” button
-        getMyAccountPage().openGmail(GMAIL_URL);
         getGmailPage().waitVisibilityOfElement(TIME_TO_WAIT, getGmailPage().getComposeButton());
         getGmailPage().clickOnComposeButton();
 

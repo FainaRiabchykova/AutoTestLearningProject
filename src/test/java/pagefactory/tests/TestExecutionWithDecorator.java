@@ -4,12 +4,11 @@ import businesslayer.datamanager.User;
 import decoratorpattern.actions.MessageActionsFD;
 import decoratorpattern.actions.SignInActionsFD;
 import decoratorpattern.asserts.MessageAssertsFD;
-import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
 public class TestExecutionWithDecorator extends BaseTest{
     @Test(dataProvider = "riaTest", dataProviderClass = DataProviderClass.class, description = "Verify possible to save and send draft letter in Gmail")
-    @Description("Verify possible to save and send draft letter in Gmail")
+
     public void checkSaveDraftsInGmail(User user) throws InterruptedException {
 
         SignInActionsFD signInActions = new SignInActionsFD();
